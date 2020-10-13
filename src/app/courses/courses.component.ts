@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import ICourse from '../shared/models/course.interface';
 
 @Component({
   selector: 'app-courses',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-
+  courseList : ICourse[];
   constructor() { }
 
   ngOnInit(): void {
