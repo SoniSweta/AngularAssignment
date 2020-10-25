@@ -2,4 +2,3 @@
 2. Run npm install
 3. Run ng serve
 4. FYI. Everything is in memory so one refresh and you need to start everything again.
-5. https://github.com/echovijaypatel/epam-angular-task-01/commits/master
