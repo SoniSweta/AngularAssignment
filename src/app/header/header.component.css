@@ -1,0 +1,8 @@
+.userDetails{
+  color: white;
+  display: flex;
+  margin-right: 47px;
+}
+.userDetails div i-bs{margin-right: 5px;margin-left: 5px;}
+.userDetails .logout{margin-left: 20px;}
+.logoutbtn{cursor: pointer;}

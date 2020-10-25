@@ -1,0 +1,29 @@
+.coursesContainer {
+  margin-bottom: 75px;
+}
+breadcrumb div {
+  background-color: #e9ecef;
+}
+.breadcrumb {
+  margin-left: 48px;
+}
+.searchWrapper {
+  margin-top: 25px;
+  padding-left: 0;
+}
+
+.searchWrapper button {
+  height: 28px;
+  width: 75px;
+  line-height: 14px;
+  margin-top: -4px;
+  margin-left: 9px;
+}
+.addCourseWrapper {
+  margin-top: 25px;
+  text-align: right;
+  padding-right: 0;
+}
+.addCourseWrapper button {
+  width: 135px;
+}
