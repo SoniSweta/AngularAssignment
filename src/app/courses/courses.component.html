@@ -1,1 +1,32 @@
-<p>courses works!</p>
+<app-header></app-header>
+<div class="coursesContainer container">
+  <div class="row" *ngIf="!isAddingNewCourse">
+    <div class="col-md-4 searchWrapper">
+      <input type="text" placeholder="Type to search" />
+      <button class="btn btn-success">Search</button>
+    </div>
+    <div class="col-md-8 addCourseWrapper">
+      <button class="btn btn-primary addCourse" (click)="addNewCourse()">
+        <i-bs name="plus-square"></i-bs>
+        Add Course
+      </button>
+    </div>
+  </div>
+<!-- Need to add bread crumb -->
+  <app-course-list
+    *ngIf="!isAddingNewCourse"
+    [courseItemsOverview]="courseItemsOverview"
+    (editCourseEvent)="editCourse($event)"
+    (deleteCourseEvent)="deleteCourse($event)"
+  ></app-course-list>
+
+  <app-course-item-detail
+    *ngIf="isAddingNewCourse"
+    [courseDetail]="courseDetail"
+    [dropdownSettings]="dropdownSettings"
+    [authors]="authors"
+    (cancelSaveEditEvent)="cancelSaveEdit()"
+    (saveChangesEvent)="saveChanges($event)"
+  ></app-course-item-detail>
+</div>
+<app-footer></app-footer>

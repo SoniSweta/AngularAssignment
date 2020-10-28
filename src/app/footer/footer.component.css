@@ -1,0 +1,13 @@
+.copyrightWrapper {
+  float: right;
+  width: 100%;
+}
+.copyright {
+  line-height: 24px;
+  font-size: 12px;
+  text-transform: none;
+  text-align: left;
+  height: 24px;
+  color: white;
+  float: right;
+}

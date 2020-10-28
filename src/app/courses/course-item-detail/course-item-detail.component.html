@@ -1,0 +1,99 @@
+<form (ngSubmit)="onSave()" #addNewForm="ngForm">
+  <div class="col-md-12 newCourseWrapper">
+    <div class="newCourse">
+      <div class="title">New Course</div>
+      <div class="itemSectionTitle">
+        <div class="item">Title:</div>
+        <div class="errorItem floatRight">*Required</div>
+      </div>
+      <div class="itemSection">
+        <input
+          class="inputItem"
+          type="text"
+          placeholder="Enter Title"
+          [(ngModel)]="courseDetail.Title"
+          name="courseDetail.Title"
+          required
+        />
+      </div>
+      <div class="itemSectionTitle">
+        <div class="item">Description:</div>
+        <div class="errorItem floatRight">*Required</div>
+      </div>
+      <div class="itemSection">
+        <textarea
+          class="inputItem description"
+          type="textarea"
+          placeholder="Add description"
+          [(ngModel)]="courseDetail.Description"
+          name="courseDetail.Description"
+          required
+        ></textarea>
+      </div>
+      <div class="itemSectionTitle inlineWrapper">
+        <div class="item disInlineTitle">Duration:</div>
+        <div class="errorItem disInline">*Required</div>
+      </div>
+      <div class="itemSection">
+        <input
+          class="inputItem normalWidth duration"
+          type="number"
+          placeholder="Minutes"
+          [(ngModel)]="courseDetail.Duration"
+          name="courseDetail.Duration"
+          required
+          min="10"
+        />
+      </div>
+      <div class="itemSectionTitle inlineWrapper">
+        <div class="item disInlineTitle">Date:</div>
+        <div class="errorItem disInline">*Required</div>
+      </div>
+      <div class="itemSection">
+        <input
+          class="inputItem normalWidth creationDate"
+          type="date"
+          placeholder="Date"
+          [(ngModel)]="courseDetail.CreationDate"
+          name="courseDetail.CreationDate"
+          required
+        />
+      </div>
+      <div class="itemSectionTitle">
+        <div class="item">Authors:</div>
+        <div class="errorItem floatRight">*Required</div>
+      </div>
+      <div class="itemSection">
+        <ng-multiselect-dropdown
+          [settings]="dropdownSettings"
+          [data]="courseDetail.Authors"
+          [(ngModel)]="courseDetail.SelectedAuthors"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          name="courseDetail.SelectedAuthors"
+          required
+        >
+        </ng-multiselect-dropdown>
+      </div>
+      <div class="itemSection buttonWrapper">
+        <div class="floatRight">
+          <input
+            type="button"
+            (click)="onCancel()"
+            class="btn btn-primary btnCustom cancel"
+            value="Cancel"
+          />
+          <input
+            type="submit"
+            class="btn btn-success btnCustom"
+            value="Save"
+            [disabled]="!addNewForm.valid"
+          />
+        </div>
+        <div class="itemSection errorMessage">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
