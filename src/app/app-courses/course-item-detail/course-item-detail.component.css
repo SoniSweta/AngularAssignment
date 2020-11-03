@@ -1,0 +1,47 @@
+.newCourseWrapper{
+  margin-top: 20px;
+  overflow-y: auto;
+  margin-bottom: 75px;
+}
+.newCourse{
+  margin: auto;
+  width: 800px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 2px 1px 2px #888888;
+}
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px !important;
+  margin-bottom: 28px !important;
+}
+.itemSectionTitle{
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.itemSection {
+  display: block;
+
+}
+.item {
+  display: inline;
+  font-weight: bold;
+}
+.floatRight {
+  float: right;
+}
+
+.buttonWrapper {
+  margin-top: 25px;
+}
+.btnCustom.cancel{margin-right: 5px;}
+.btnCustom:disabled{background-color:gray}
+.inputItem{width: 100%;}
+.errorMessage{height: 30px;color: red;}
+.normalWidth{width: 150px;}
+.inlineWrapper{display: flex;}
+.disInlineTitle {width: 89px;}
+.disInline{display: inline;}
