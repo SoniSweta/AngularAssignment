@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -15,11 +16,10 @@ describe('Logged in guard should', () => {
   // beforeEach
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, CommonModule],
+      imports: [RouterTestingModule, FormsModule, CommonModule],
       providers: [
         AuthGuardService,
         AuthService,
-        { provide: Router, useValue: router },
       ],
     }).compileComponents(); // compile template and css
 
@@ -28,12 +28,12 @@ describe('Logged in guard should', () => {
   });
 
   it('be able to hit route when user is logged in', () => {
-    authService.setUsername('Test username');
+    authService.login('Test username');
     expect(authGuardService.canActivate()).toBe(true);
   });
 
   it('not be able to hit route when user is not logged in', () => {
-    authService.setUsername(null);
+    authService.logout();
     expect(authGuardService.canActivate()).toBe(false);
   });
 });

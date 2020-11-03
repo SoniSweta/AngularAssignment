@@ -7,35 +7,35 @@ import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { LogoComponent } from './logo/logo.component';
-import { ErrorComponent } from './error/error.component';
 import { AuthGuardService } from './services/auth-guard.service';
-import { CoursesComponent } from './courses/courses.component';
-import { CourseListComponent } from './courses/course-list/course-list.component';
-import { CourseItemDetailComponent } from './courses/course-item-detail/course-item-detail.component';
 import { NumberToMinutes } from './services/numbertominutes.pipe';
+import { AppSharedModule } from './app-shared/app-shared.module';
+import { AppLoginModule } from './app-login/app-login.module';
+import { CourseListComponent } from './app-courses/course-list/course-list.component';
+import { CoursesComponent } from './app-courses/courses.component';
+import { CourseItemDetailComponent } from './app-courses/course-item-detail/course-item-detail.component';
+import { CourseListFilter } from './app-courses/course-list/course-list.filter.pipe';
+import { CourseListHighlightDirective } from './app-courses/course-list/course-list.directive';
+import { CourseListOrder } from './app-courses/course-list/course-list.order.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NumberToMinutes,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    LogoComponent,
     CourseListComponent,
-    ErrorComponent,
     CoursesComponent,
     CourseItemDetailComponent,
+    CourseListHighlightDirective,
+    CourseListFilter,
+    CourseListOrder,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     NgxBootstrapIconsModule.pick(allIcons),
+    AppLoginModule,
+    AppSharedModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [NumberToMinutes, AuthGuardService],
