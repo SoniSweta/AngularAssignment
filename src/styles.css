@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+	font-family: "SourceSansPro-Bold";font-size: 14px;
+}
+.navbar{background:#303240;height: 60px;}
+.displayFlex{display: flex;}
+.btnCustom {
+  height: 28px;
+  width: 75px;
+  line-height: 2px;
+}
+.btn{cursor: pointer;}

@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="coursesContainer container">
+<!-- Need to add bread crumb -->
+  <app-course-list
+    *ngIf="!isAddingNewCourse"
+    [courseItemsOverview]="courseItemsOverview"
+    (addCourseEvent)="addNewCourse()"
+    (editCourseEvent)="editCourse($event)"
+    (deleteCourseEvent)="deleteCourse($event)"
+  ></app-course-list>
+
+  <app-course-item-detail
+    *ngIf="isAddingNewCourse"
+    [courseDetail]="courseDetail"
+    [dropdownSettings]="dropdownSettings"
+    [authors]="authors"
+    (cancelSaveEditEvent)="cancelSaveEdit()"
+    (saveChangesEvent)="saveChanges($event)"
+  ></app-course-item-detail>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-md-4 searchWrapper">
+    <input type="text" placeholder="Text to search" [(ngModel)]="searchStr" />
+    <button class="btn btn-success" (click)="searchCourse()">Search</button>
+  </div>
+  <div class="col-md-8 addCourseWrapper">
+    <button class="btn btn-primary addCourse" (click)="addNewCourse()">
+      <i-bs name="plus-square"></i-bs>
+      Add Course
+    </button>
+  </div>
+</div>
+<div class="noDataMsg" *ngIf="courseItemsOverviewFiltered.length < 1">
+  No Data, Feel free to add some courses or change filter.
+</div>
+<div *ngIf="courseItemsOverviewFiltered.length > 0">
+  <div
+    *ngFor="let item of courseItemsOverviewFiltered | CourseListOrder"
+    class="row coursesOverview"
+    courseListHighlight
+    [creationDate]="item.CreationDate"
+    [ngClass]="{
+      topRated: item.IsTopRated,
+      notTopRated: !item.IsTopRated
+    }"
+  >
+    <div class="col-md-8 courseSection courseTitleWrapper">
+      <div class="title">{{ item.Title | uppercase }}</div>
+      <div class="rating">
+        <i-bs
+          name="star-fill"
+          [ngClass]="{
+            topRated: item.IsTopRated,
+            notTopRated: !item.IsTopRated
+          }"
+        ></i-bs>
+      </div>
+    </div>
+    <div class="col-md-4 courseSection displayFlex durationWrapper">
+      <div class="duration">
+        <i-bs name="stopwatch"></i-bs>
+        {{ item.Duration | NumberToMinutes }}
+      </div>
+      <div class="creationDate">
+        <i-bs name="calendar"></i-bs>
+        {{ item.CreationDate | date: "d MMM, yyyy" }}
+      </div>
+    </div>
+    <div class="col-md-8 courseSection">
+      <div class="description">
+        {{ item.Description }}
+      </div>
+    </div>
+    <div class="col-md-4 courseSection displayFlex btnWrapper">
+      <div class="edit">
+        <button
+          class="btn btn-primary btnCustom btnedit"
+          (click)="editCourse(item.Id)"
+        >
+          <i-bs name="pencil-square"></i-bs>
+          Edit
+        </button>
+      </div>
+      <div class="delete">
+        <button
+          class="btn btn-primary btnCustom btndelete"
+          (click)="deleteCourse(item.Id)"
+        >
+          <i-bs name="archive-fill"></i-bs>
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="loadMore">
+    <a href="#" class="loadMoreButton"> Load More</a>
+  </div>
+</div>
